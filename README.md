@@ -17,20 +17,20 @@ Available Methods:
 
   * $.fn.apply_template_advanced(options) - First thing to note is that all the other 3 methods call this method.  They create a quick options object and call this method with it.  
 
-      `Default Options:
-        {
-          inner_template_holder: null,  //Which class inside the outer template should we append to?
-          template: null,               //This is a template object made by make_template
-          template_class: 'Type',       //If template is an array, this is required
-          post_function: null,          //This is a function that's run after the element is added and finished.  Rarely used
-          template_outer: null,         //If null, then it will only do 1 layer
-          template_outer_id_addon: "",  //If you're using the same outer template for multiple cases, you'll need to add a string to the id so that it doesn't conflict with others
-          template_outer_class: 'Type', //if outer is not null, this is required (this becomes the ID of the outer obj)
-          post_outer_function: null,    //post function for outer elements
-          obj: null,                    //This is the json array
-          overwrite: false,             //True = clear out parent element before we start
-          ech: false                    //Debug mode - console.log statements in the code will be run
-        };`
+        Default Options:
+          {
+            inner_template_holder: null,  //Which class inside the outer template should we append to?
+            template: null,               //This is a template object made by make_template
+            template_class: 'Type',       //If template is an array, this is required
+            post_function: null,          //This is a function that's run after the element is added and finished.  Rarely used
+            template_outer: null,         //If null, then it will only do 1 layer
+            template_outer_id_addon: "",  //If you're using the same outer template for multiple cases, you'll need to add a string to the id so that it doesn't conflict with others
+            template_outer_class: 'Type', //if outer is not null, this is required (this becomes the ID of the outer obj)
+            post_outer_function: null,    //post function for outer elements
+            obj: null,                    //This is the json array
+            overwrite: false,             //True = clear out parent element before we start
+            ech: false                    //Debug mode - console.log statements in the code will be run
+          };
 
   * $.fn.replaceElements(item) - This is a simple helper, for those times that you don't want to make a template.  This will take an element and replace classes that match the items properties.
 
