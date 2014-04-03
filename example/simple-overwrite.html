@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="../src/jquery.barebonetemplates.js"></script>
+		<style> 
+			.item span { width: 200px; display: inline-block;}
+			.item { border: 1px solid black; display: inline-block; padding: 5px;}
+		</style>
+	</head>
+	<body>
+		<h1>Code</h1>
+		<p>In this case we'll do a simple overwrite for the template.  In this case we want to update the item to have a background color.  This isn't a normal replacement like the basic example, so we have to write a little custom
+		code to do what we want.</p>
+		<textarea style="margin: 2px; width: 684px; height: 401px;">
+<script>
+  // In this example we add a function into the make_template that will get run on each instance
+  var item_template = $('#item').make_template(function(em, obj){
+  	if (obj.color) {
+  		em.css('background-color', obj.color);
+  	}
+  });
+  // setup an object, this would usually be returned from ajax
+  var items = [
+  	{Id: 1, Name: "item1", SKU: "1234567", color: "blue"}, 
+  	{Id: 2, Name: "item2", SKU: "2123535", color: "red"}
+  ];
+
+  // step two - use the template.  This will take the items object, and use the template, 
+  // and create elements for each array item.
+  $('.items').apply_template(item_template, items);
+  
+  // step three - now we'll setup example #2, where you update one of the items above, and 
+  // you want it to update the html.  If you comment out line 19 and 20, then you should see 
+  // that item1's name is just item1.
+  var new_items = [
+  	{Id: 1, Name: 'item1 has been updated'}, 
+  	{Id: 3, Name: 'im a new item entirely', SKU: "mysku", color: "yellow"}
+  ];
+
+  $('.items').apply_template(item_template, new_items);
+</script>
+<div class='items'>
+  <div id='item' class='item'>
+    <span class="Name">Name</span>
+    <span class="SKU">12345</span>
+    <span class="open">Open</span>
+  </div>
+</div>
+		</textarea>
+		<p></p>
+		<h1>What it turns into:</h1>
+		<div class='items'>
+		  <div id='item' class='item'>
+		    <span class="Name">Name</span>
+		    <span class="SKU">12345</span>
+		    <span class="open">Open</span>
+		  </div>
+		</div>
+
+		<script>
+		  // In this example we add a function into the make_template that will get run on each instance
+		  var item_template = $('#item').make_template(function(em, obj){
+		  	if (obj.color) {
+		  		em.css('background-color', obj.color);
+		  	}
+		  });
+		  // setup an object, this would usually be returned from ajax
+		  var items = [
+		  	{Id: 1, Name: "item1", SKU: "1234567", color: "blue"}, 
+		  	{Id: 2, Name: "item2", SKU: "2123535", color: "red"}
+		  ];
+
+		  // step two - use the template.  This will take the items object, and use the template, 
+		  // and create elements for each array item.
+		  $('.items').apply_template(item_template, items);
+		  
+		  // step three - now we'll setup example #2, where you update one of the items above, and 
+		  // you want it to update the html.  If you comment out line 19 and 20, then you should see 
+		  // that item1's name is just item1.
+		  var new_items = [
+		  	{Id: 1, Name: 'item1 has been updated'}, 
+		  	{Id: 3, Name: 'im a new item entirely', SKU: "mysku", color: "yellow"}
+		  ];
+
+		  $('.items').apply_template(item_template, new_items);
+
+		</script>
+	</body>
+</html>
