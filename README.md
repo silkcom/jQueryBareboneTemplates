@@ -7,15 +7,15 @@ The main purpose of this new templating system is to be able to have an html/css
 
 
 Available Methods:
-  $.fn.make_template(each_function) - each_function should look like function(element, obj).  The element is the new element created by the template, and the object is what is passed in this time.  Make template returns an object that is passed to apply_template / apply_template_debug / apply_layered_template / apply_template_advanced and is used to create clones of the element it's called on.  Calling this on an element removes it from the dom.
+  * $.fn.make_template(each_function) - each_function should look like function(element, obj).  The element is the new element created by the template, and the object is what is passed in this time.  Make template returns an object that is passed to apply_template / apply_template_debug / apply_layered_template / apply_template_advanced and is used to create clones of the element it's called on.  Calling this on an element removes it from the dom.
 
-  $.fn.apply_template(template, json_array, overwrite) - This is the default simple method.  You pass in a template object, an array of objects, and a flag.  The overwrite flag decide if you want to clear the containing div before adding the new elements.
+  * $.fn.apply_template(template, json_array, overwrite) - This is the default simple method.  You pass in a template object, an array of objects, and a flag.  The overwrite flag decide if you want to clear the containing div before adding the new elements.
 
-  $.fn.apply_template_debug(template, json_array, overwrite) - This works exactly the same as apply_template except it outputs some debug as it does it's stuff.  This is mainly used by me when I find a bug and need to fix it (or you if you plan on helping me :)).
+  * $.fn.apply_template_debug(template, json_array, overwrite) - This works exactly the same as apply_template except it outputs some debug as it does it's stuff.  This is mainly used by me when I find a bug and need to fix it (or you if you plan on helping me :)).
 
-  $.fn.apply_layered_template(template_outer, template_inner, json_array, overwrite) - This is a more advanced function, but if you have everything setup just right this one is easier than the advanced function.
+  * $.fn.apply_layered_template(template_outer, template_inner, json_array, overwrite) - This is a more advanced function, but if you have everything setup just right this one is easier than the advanced function.
 
-  $.fn.apply_template_advanced(options) - First thing to note is that all the other 3 methods call this method.  They create a quick options object and call this method with it.  
+  * $.fn.apply_template_advanced(options) - First thing to note is that all the other 3 methods call this method.  They create a quick options object and call this method with it.  
 
     Default Options:
       {
@@ -32,7 +32,7 @@ Available Methods:
         ech: false                    //Debug mode - console.log statements in the code will be run
       };
 
-  $.fn.replaceElements(item) - This is a simple helper, for those times that you don't want to make a template.  This will take an element and replace classes that match the items properties.
+  * $.fn.replaceElements(item) - This is a simple helper, for those times that you don't want to make a template.  This will take an element and replace classes that match the items properties.
 
 
 Examples:
