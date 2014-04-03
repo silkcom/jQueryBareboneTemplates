@@ -9,59 +9,9 @@
 		</style>
 	</head>
 	<body>
-		<h1>Code</h1>
+		<h1>Advanced - Outer Templating</h1>
 		<p>Here we get a little more advanced.  We have an outer template, and an inner template.  There are a few ways to do this, but this is for splitting a single array based on one of the properties.</p>
-		<textarea style="margin: 2px; width: 684px; height: 401px;">
-<div class="item_holder">
-	<div id="outer_items" class='item_group'>
-		<div class="title">Title</div>
-		<div class='items'>
-		  <div id='item' class='item'>
-		    <span class="Name">Name</span>
-		    <span class="SKU">12345</span>
-		    <span class="open">Open</span>
-		  </div>
-		</div>
-	</div>
-</div>
-<script>
-  // notice you have to remove the inner template first, and then the outer.  Because
-  // if you do the outer template first, the inner template will already be gone and
-  // stored into memory.
-  var item_template = $('#item').make_template();
-  var outer_template = $('#outer_items').make_template(function(em, obj){
-  	em.find('.title').html(obj.id);
-  	em.css('background-color', obj.id);
-  });
-  var items = [
-  	{Id: 1, Name: "item1", SKU: "1234567", color: "blue"}, 
-  	{Id: 2, Name: "item2", SKU: "2123535", color: "red"},
-  	{Id: 3, Name: "item3", SKU: "3234567", color: "blue"}, 
-  	{Id: 4, Name: "item4", SKU: "4123535", color: "red"},
-  	{Id: 5, Name: "item5", SKU: "5234567", color: "blue"}, 
-  	{Id: 6, Name: "item6", SKU: "6123535", color: "red"},
-  	{Id: 7, Name: "item7", SKU: "7234567", color: "blue"}, 
-  	{Id: 8, Name: "item8", SKU: "8123535", color: "red"}
-  ];
-  var options = {
-		template_outer: outer_template,
-		template: item_template,
-		template_outer_class: "color",
-		inner_template_holder: ".items",
-		obj: items
-  };
-  $('.item_holder').apply_template_advanced(options);
-  //we're changing the color of a few, which will move the element, as it updates stuff
-  var new_items = [
-  	{Id: 3, Name: 'item 3', SKU: "12345", color: "green"}, 
-  	{Id: 4, Name: 'im a new item entirely', SKU: "mysku", color: "yellow"}
-  ];
-  options.obj = new_items;
-  $('.item_holder').apply_template_advanced(options);
-
-</script>
-		</textarea>
-		<h1>What it turns into:</h1>
+		
 		<div class="item_holder">
 			<div id="outer_items" class="item_group">
 				<div class="title">Title</div>

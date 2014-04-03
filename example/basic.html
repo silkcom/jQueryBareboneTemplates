@@ -8,42 +8,9 @@
 		</style>
 	</head>
 	<body>
-		<h1>Code</h1>
+		<h1>Easiest use case</h1>
 		<p>In this example you see the basic use case.</p>
-		<textarea style="margin: 2px; width: 684px; height: 401px;">
-<script>
-  // step one - turn your template into memory for use later
-  var item_template = $('#item').make_template();
-  // setup an object, this would usually be returned from ajax
-  var items = [
-  	{Id: 1, Name: "item1", SKU: "1234567"}, 
-  	{Id: 2, Name: "item2", SKU: "2123535"}
-  ];
-
-  // step two - use the template.  This will take the items object, and use the template, 
-  // and create elements for each array item.
-  $('.items').apply_template(item_template, items);
-  
-  // step three - now we'll setup example #2, where you update one of the items above, and 
-  // you want it to update the html.  If you comment out line 19 and 20, then you should see 
-  // that item1's name is just item1.
-  var new_items = [
-  	{Id: 1, Name: 'item1 has been updated'}, 
-  	{Id: 3, Name: 'im a new item entirely', SKU: "mysku"}
-  ];
-
-  $('.items').apply_template(item_template, new_items);
-</script>
-<div class='items'>
-  <div id='item' class='item'>
-    <span class="Name">Name</span>
-    <span class="SKU">12345</span>
-    <span class="open">Open</span>
-  </div>
-</div>
-		</textarea>
-		<p></p>
-		<h1>What it turns into:</h1>
+	
 		<div class='items'>
 		  <div id='item' class='item'>
 		    <span class="Name">Name</span>

@@ -8,39 +8,10 @@
 		</style>
 	</head>
 	<body>
-		<h1>Code</h1>
+		<h1>Simple Replace</h1>
 		<p>In this case we'll do a simple overwrite for the template.  In this case we want to update the item to have a background color.  This isn't a normal replacement like the basic example, so we have to write a little custom
 		code to do what we want.</p>
-		<textarea style="margin: 2px; width: 684px; height: 401px;">
-<script>
-  var item_template = $('#item').make_template(function(em, obj){
-  	if (obj.color) {
-  		em.css('background-color', obj.color);
-  	}
-  });
-  var items = [
-  	{Id: 1, Name: "item1", SKU: "1234567", color: "blue"}, 
-  	{Id: 2, Name: "item2", SKU: "2123535", color: "red"}
-  ];
-  $('.items').apply_template(item_template, items);
-    var new_items = [
-  	{Id: 1, Name: 'item1 has been replaced', SKU: "12345", color: "green"}, 
-  	{Id: 3, Name: 'im a new item entirely', SKU: "mysku", color: "yellow"}
-  ];
 
-  //the true here replaces items rather than updating
-  $('.items').apply_template(item_template, new_items, true);
-</script>
-<div class='items'>
-  <div id='item' class='item'>
-    <span class="Name">Name</span>
-    <span class="SKU">12345</span>
-    <span class="open">Open</span>
-  </div>
-</div>
-		</textarea>
-		<p></p>
-		<h1>What it turns into:</h1>
 		<div class='items'>
 		  <div id='item' class='item'>
 		    <span class="Name">Name</span>
